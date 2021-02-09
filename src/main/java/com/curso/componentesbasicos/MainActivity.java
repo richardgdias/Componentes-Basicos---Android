@@ -1,7 +1,9 @@
 package com.curso.componentesbasicos;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
@@ -118,6 +120,37 @@ public class MainActivity extends AppCompatActivity {
         configurarCheckCor();
         configurarToggle();
 
+        /////////////////////////////////////////////////////////////////////
+
+        //AlertDialog
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+
+        dialog.setTitle("Titulo");
+        dialog.setMessage("Mensagem");
+
+        dialog.setCancelable(false); // permitir o cancelamento "clicar fora das opcoes" ou false "escolher uma das opçoes"
+        dialog.setIcon(android.R.drawable.ic_btn_speak_now); // configurar icone
+
+        dialog.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(getApplicationContext(), "Ação realizada ao clicar no Sim", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        dialog.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(getApplicationContext(), "Ação realizada ao clicar no Não", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        dialog.create();
+        dialog.show();
+
+        /////////////////////////////////////////////////////////////////////
+
+        // TOAST
         // criando uma imagem
         ImageView imagem = new ImageView(getApplicationContext());
         imagem.setImageResource(android.R.drawable.star_big_off); // imagem do programa
