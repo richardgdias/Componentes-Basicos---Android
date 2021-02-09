@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,7 +23,7 @@ import com.google.android.material.textfield.TextInputEditText;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView textResultado1, textResultado2, textResultado3, textResultado4, textResultado5;
+    private TextView textResultado1, textResultado2, textResultado3, textResultado4, textResultado5, textResultado6;
     private EditText editNome;
     private TextInputEditText textInputEditEmail;
     private CheckBox checkPreto, checkVermelho;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private ToggleButton toggleSenha;
     private ProgressBar progressBarHorizontal, progressBarCircular;
     private int progresso = 0;
+    private SeekBar seekBarEscala;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         textResultado3 = findViewById(R.id.textResultado3);
         textResultado4 = findViewById(R.id.textResultado4);
         textResultado5 = findViewById(R.id.textResultado5);
+        textResultado6 = findViewById(R.id.textResultado6);
         editNome = findViewById(R.id.editNome);
         textInputEditEmail = findViewById(R.id.textInputEditEmail);
         checkPreto = findViewById(R.id.checkPreto);
@@ -55,6 +58,25 @@ public class MainActivity extends AppCompatActivity {
         progressBarCircular = findViewById(R.id.progressBarCircular);
         progressBarCircular.setVisibility(View.GONE); // ele some da tela
         progressBarHorizontal = findViewById(R.id.progressBarHorizontal);
+        seekBarEscala = findViewById(R.id.seekBarEscala);
+
+        //Mudar em tempo real SeekBar
+        seekBarEscala.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override // clica arrasta e muda o marcador
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                textResultado6.setText("Progresso: " + progress + " / " + seekBar.getMax());
+            }
+
+            @Override // clica em cima do marcador
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                //textResultado6.setText("onStartTrackingTouch");
+            }
+
+            @Override // quando solta o marcador
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                //textResultado6.setText("onStopTrackingTouch");
+            }
+        });
 
         configurarRadioButton();
         configurarSwitch();
@@ -184,6 +206,10 @@ public class MainActivity extends AppCompatActivity {
         if (progresso == 10){
             progressBarCircular.setVisibility(View.GONE); // esconder na tela novamente
         }
-
     }
+
+        public void recuperarProgresso(View view){
+            textResultado6.setText("Escolhido: " + seekBarEscala.getProgress());
+        }
+
 }

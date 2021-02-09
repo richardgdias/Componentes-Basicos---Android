@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="COMPONENTES BÁSICOS"
-        android:textSize="24sp" />
+        android:textSize="14sp" />
 
     <EditText
         android:id="@+id/editNome"
@@ -98,9 +98,10 @@
     <Button
         android:id="@+id/buttonAplicar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="33dp"
         android:onClick="botaoAplicar"
-        android:text="Aplicar" />
+        android:text="Aplicar"
+        android:textSize="10sp" />
 
     <TextView
         android:id="@+id/textResultado1"
@@ -118,21 +119,21 @@
 
     <TextView
         android:id="@+id/textResultado3"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Resultado 3"
         android:textSize="12sp" />
 
     <TextView
         android:id="@+id/textResultado4"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Resultado 4"
         android:textSize="12sp" />
 
     <TextView
         android:id="@+id/textResultado5"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Resultado 5"
         android:textSize="12sp" />
@@ -153,8 +154,37 @@
     <Button
         android:id="@+id/buttonCarregar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="32dp"
         android:onClick="carregarProgressBar"
-        android:text="Carregar" />
+        android:text="Carregar"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="O quão divertido você é? de 0 até 10"
+        android:textSize="12sp" />
+
+    <SeekBar
+        android:id="@+id/seekBarEscala"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="10"
+        android:progress="0" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:onClick="recuperarProgresso"
+        android:text="Recuperar progresso"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/textResultado6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Resultado 6" />
 
 </LinearLayout>
