@@ -10,6 +10,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Switch;
@@ -29,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     private RadioGroup opcaoSexo;
     private Switch switchSenha;
     private ToggleButton toggleSenha;
+    private ProgressBar progressBarHorizontal, progressBarCircular;
+    private int progresso = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
         opcaoSexo = findViewById(R.id.opcaoSexo);
         switchSenha = findViewById(R.id.switchSenha);
         toggleSenha = findViewById(R.id.toggleSenha);
+        progressBarCircular = findViewById(R.id.progressBarCircular);
+        progressBarCircular.setVisibility(View.GONE); // ele some da tela
+        progressBarHorizontal = findViewById(R.id.progressBarHorizontal);
 
         configurarRadioButton();
         configurarSwitch();
@@ -167,5 +173,17 @@ public class MainActivity extends AppCompatActivity {
 
         //configurando o Toast "Mensagem na tela quando realizar uma ação"
         //Toast.makeText(getApplicationContext(), "Ação realizada com sucesso", Toast.LENGTH_LONG).show();
+    }
+
+    public void carregarProgressBar(View view){
+
+        this.progresso = this.progresso + 1; // quando clicar no botao vai incrementar
+        progressBarHorizontal.setProgress(this.progresso);
+
+        progressBarCircular.setVisibility(View.VISIBLE); // aparece na tela
+        if (progresso == 10){
+            progressBarCircular.setVisibility(View.GONE); // esconder na tela novamente
+        }
+
     }
 }

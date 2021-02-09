@@ -22,7 +22,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Nome:"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textSize="12sp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -35,20 +36,23 @@
             android:hint="Email:"
             android:inputType="textEmailAddress"
             android:selectAllOnFocus="false"
-            android:singleLine="false" />
+            android:singleLine="false"
+            android:textSize="12sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <CheckBox
         android:id="@+id/checkPreto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Preto" />
+        android:text="Preto"
+        android:textSize="12sp" />
 
     <CheckBox
         android:id="@+id/checkVermelho"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Vermelho" />
+        android:text="Vermelho"
+        android:textSize="12sp" />
 
     <RadioGroup
         android:id="@+id/opcaoSexo"
@@ -59,13 +63,15 @@
             android:id="@+id/radioMasculino"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Masculino" />
+            android:text="Masculino"
+            android:textSize="12sp" />
 
         <RadioButton
             android:id="@+id/radioFeminino"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Feminino" />
+            android:text="Feminino"
+            android:textSize="12sp" />
 
     </RadioGroup>
 
@@ -76,7 +82,8 @@
         android:checked="false"
         android:text="Lembrar senha"
         android:textOff="Desligado"
-        android:textOn="Ligado" />
+        android:textOn="Ligado"
+        android:textSize="12sp" />
 
     <ToggleButton
         android:id="@+id/toggleSenha"
@@ -85,10 +92,11 @@
         android:checked="false"
         android:text="ToggleButton"
         android:textOff="Desligado"
-        android:textOn="Ligado" />
+        android:textOn="Ligado"
+        android:textSize="12sp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonAplicar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="botaoAplicar"
@@ -99,34 +107,54 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Resultado 1"
-        android:textSize="18sp" />
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/textResultado2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Resultado 2"
-        android:textSize="18sp" />
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/textResultado3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Resultado 3"
-        android:textSize="18sp" />
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/textResultado4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Resultado 4"
-        android:textSize="18sp" />
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/textResultado5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Resultado 5"
-        android:textSize="18sp" />
+        android:textSize="12sp" />
+
+    <ProgressBar
+        android:id="@+id/progressBarHorizontal"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="10" />
+
+    <ProgressBar
+        android:id="@+id/progressBarCircular"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/buttonCarregar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="carregarProgressBar"
+        android:text="Carregar" />
 
 </LinearLayout>
