@@ -7,10 +7,12 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.google.android.material.textfield.TextInputEditText;
@@ -115,5 +117,22 @@ public class MainActivity extends AppCompatActivity {
         configurartextView();
         configurarCheckCor();
         configurarToggle();
+
+        // criando uma imagem
+        ImageView imagem = new ImageView(getApplicationContext());
+        imagem.setImageResource(android.R.drawable.star_big_off); // imagem do programa
+
+        TextView texto = new TextView(getApplicationContext());
+        texto.setBackgroundResource(R.color.colorAccent);
+        texto.setText("Olá toast");
+
+        //configurar o Toast customizado
+        Toast toast = new Toast(getApplicationContext());
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setView(imagem); // pegando a imagem que criei ou o textView
+        toast.show();
+
+        //configurando o Toast "Mensagem na tela quando realizar uma ação"
+        //Toast.makeText(getApplicationContext(), "Ação realizada com sucesso", Toast.LENGTH_LONG).show();
     }
 }
