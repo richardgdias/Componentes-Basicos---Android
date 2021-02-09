@@ -5,21 +5,26 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import com.google.android.material.textfield.TextInputEditText;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView textResultado1, textResultado2, textResultado3;
+    private TextView textResultado1, textResultado2, textResultado3, textResultado4, textResultado5;
     private EditText editNome;
     private TextInputEditText textInputEditEmail;
     private CheckBox checkPreto, checkVermelho;
     private RadioButton radioMasculino, radioFeminino;
     private RadioGroup opcaoSexo;
+    private Switch switchSenha;
+    private ToggleButton toggleSenha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
         textResultado1 = findViewById(R.id.textResultado1);
         textResultado2 = findViewById(R.id.textResultado2);
         textResultado3 = findViewById(R.id.textResultado3);
+        textResultado4 = findViewById(R.id.textResultado4);
+        textResultado5 = findViewById(R.id.textResultado5);
         editNome = findViewById(R.id.editNome);
         textInputEditEmail = findViewById(R.id.textInputEditEmail);
         checkPreto = findViewById(R.id.checkPreto);
@@ -36,8 +43,11 @@ public class MainActivity extends AppCompatActivity {
         //radioMasculino = findViewById(R.id.radioMasculino);
         //radioFeminino = findViewById(R.id.radioFeminino);
         opcaoSexo = findViewById(R.id.opcaoSexo);
+        switchSenha = findViewById(R.id.switchSenha);
+        toggleSenha = findViewById(R.id.toggleSenha);
 
         configurarRadioButton();
+        configurarSwitch();
     }
 
     public void configurartextView(){
@@ -65,23 +75,45 @@ public class MainActivity extends AppCompatActivity {
                 } else if (checkedId == R.id.radioFeminino) {
                     textResultado3.setText("Feminino");
                 }
+              /*  String sexo = "";
+                if (radioMasculino.isChecked()){
+                    sexo = "" + (radioMasculino.getText());
+                }
+                if (radioFeminino.isChecked()){
+                    sexo = "" + (radioFeminino.getText());
+                }
+                textResultado3.setText("Sexo: " + sexo);
+               */
             }
         });
     }
 
+    public void configurarSwitch(){
+        switchSenha.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    textResultado4.setText("Switch ligado");
+                }
+                else {
+                    textResultado4.setText("Switch desligado");
+                }
+            }
+        });
+    }
 
-      /*  String sexo = "";
-        if (radioMasculino.isChecked()){
-            sexo = "" + (radioMasculino.getText());
+    public void configurarToggle(){
+        if (toggleSenha.isChecked()){
+            textResultado5.setText("Toggle ligado");
         }
-        if (radioFeminino.isChecked()){
-            sexo = "" + (radioFeminino.getText());
+        else {
+            textResultado5.setText("Toggle desligado");
         }
-        textResultado3.setText("Sexo: " + sexo);
-       */
+    }
 
     public void botaoAplicar(View view){
         configurartextView();
         configurarCheckCor();
+        configurarToggle();
     }
 }

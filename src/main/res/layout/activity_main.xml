@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="20dp"
     tools:context=".MainActivity">
 
     <TextView
@@ -65,7 +66,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Feminino" />
+
     </RadioGroup>
+
+    <Switch
+        android:id="@+id/switchSenha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:text="Lembrar senha"
+        android:textOff="Desligado"
+        android:textOn="Ligado" />
+
+    <ToggleButton
+        android:id="@+id/toggleSenha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:text="ToggleButton"
+        android:textOff="Desligado"
+        android:textOn="Ligado" />
 
     <Button
         android:id="@+id/button"
@@ -93,6 +113,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Resultado 3"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textResultado4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Resultado 4"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textResultado5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Resultado 5"
         android:textSize="18sp" />
 
 </LinearLayout>
